@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZwT" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Contact Us</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa; /* Set a background color */
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column; /* Align items in a column */
+            padding: 20px;
+        }
+        .form-control {
+            margin-bottom: 10px; /* Add some space between input boxes */
+        }
+      
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>RMP Plastics</h1>
+        <div class="navbar-links">
+            <p class="navbar-link"><a href="{% url 'home_view' %}">Home</a></p>
+            <p class="navbar-link"><a href="{% url 'service_view' %}">Products</a></p>
+            <p class="navbar-link"><a href="{% url 'contact' %}">Contact</a></p>
+            <div class="nav-cart">
+                <a href="{% url 'cart' %}">
+                    <h2><i class="fas fa-shopping-cart"></i></h2>
+                    
+                    <span>cart</span>
+                </a>
+            </div>
+            
+
+
+        </div>
+
+
+    </nav>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">For Enquiry</h2>
+            <form  method="post" action="{% url 'contact_view' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_name">Name:</label>
+                    <input type="text" class="form-control" id="id_name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_email">Email:</label>
+                    <input type="email" class="form-control" id="id_email" name="email" >
+                </div>
+                <div class="form-group">
+                    <label for="id_phone_number">Phone Number:</label>
+                    <input type="text" class="form-control" id="id_phone_number" name="phone_number" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_message">Message:</label>
+                    <textarea class="form-control" id="id_message" name="message" rows="4" required></textarea>
+                </div>
+                <button class="button" type="submit" class="btn btn-primary btn-block">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

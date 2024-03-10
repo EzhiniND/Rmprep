@@ -1,0 +1,114 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .cart-container {
+            text-align: center;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .cart-products {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #personalDetailsForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 60%; /* Adjust the width as needed */
+            max-width: 400px; /* Set a maximum width if desired */
+            margin: auto; /
+        }
+
+        label {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        input, button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            width: 250px;
+            box-sizing: border-box;
+        }
+        .remove{
+            width: 20px;
+            background-color: red;
+            display: inline-block;
+            
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <form id="orderForm" method="post" action="{% url 'submit_order' %}">
+        {% csrf_token %}
+        
+         <h1>Personal Details</h1> 
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+    
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" required>
+    
+        <!-- Cart Details -->
+        <input type="hidden" id="cartDetails" name="cartDetails" value="" required>
+    
+        <!-- Submit Button -->
+        <button type="submit">Submit Order</button>
+    </form>
+    
+    <!-- Your existing cart container -->
+    <div class="cart-container">
+        <h2>Order Summary <button  class="remove" class="close-cart-btn" onclick="clearCartContainer()">&#10006;</button></h2>
+        <div class="cart-products">
+
+            
+            <!-- Cart products will be dynamically added here -->
+        </div>
+        <div class="cart-total">
+            <!-- Cart total will be dynamically added here -->
+        </div>
+    </div>
+    
+    
+    
+    <script src="{% static 'other.js' %}"></script>
+</body>
+</html>

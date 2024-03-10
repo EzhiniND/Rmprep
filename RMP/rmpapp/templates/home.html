@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">    
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <nav class="navbar">
+        <h1>RMP Plastics</h1>
+        <div class="navbar-links">
+            <p class="navbar-link"><a href="{% url 'home_view' %}">Home</a></p>
+            <p class="navbar-link"><a href="{% url 'service_view' %}">Products</a></p>
+            <p class="navbar-link"><a href="{% url 'contact' %}">Contact</a></p>
+            <div class="nav-cart">
+                <a href="{% url 'cart' %}">
+                    <h2><i class="fas fa-shopping-cart"></i></h2>
+                    
+                    <span>cart</span>
+                </a>
+            </div>
+            
+
+
+        </div>
+        <div class="navbar-menu" onclick="showNavbar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+    </nav>
+    <div class="side-navbar">
+        <p style="text-align: right;" onclick="closeNavbar()">
+            <i class="fa-solid fa-xmark"></i>
+
+        </p>
+        <div class="side-navbar-links">
+            <p class="side-navbar-link"><a href="">Home</a></p>
+            <p class="side-navbar-link"><a href="">Our Service</a></p>
+            <p class="side-navbar-link"><a href="">Contact</a></p>
+
+        </div>    
+    </div>    
+    <div class="slider-container">
+        <div class="slider-wrapper">
+            <div class="slide">
+                <img src="{% static 'img/Screenshot 2024-01-26 193058.png' %}" alt="">                
+            </div>
+            <div class="slide">
+                <img src="{% static 'img/rmp-w2.png' %}" alt="">
+            </div>
+            <div class="slide">
+                <img src="{% static 'img/Screenshot 2024-01-26 193603.png'%}" alt="">
+            </div>
+        </div>
+    
+        <!-- Optional: Add navigation buttons -->
+        <button class="prev" onclick="prevSlide()">❮</button>
+        <button class="next" onclick="nextSlide()">❯</button>
+    </div>
+
+    <div class="head1"><h2>ABOUT US</h2></div>
+
+    <div class="about"><h3> "A reputable and leading manufacturer based in Chennai, specializing in the production of Reprocessed Polypropylene Chips. Our expertise spans over 15 years, offering a range that includes Reprocessed Natural, White, and Colour Polypropylene Chips."</h3><p>We pride ourselves on our comprehensive understanding of the production process, meticulous attention to raw materials, and a keen awareness of market demands for plastic products. we've made significant investments in cutting-edge equipment, state-of-the-art technology, and a skilled workforce to ensure that our plastic resin manufacturing business stands at the forefront of the industry. Our commitment extends beyond production - we take environmental concerns seriously, adhering to industry regulations and implementing sustainable practices throughout our processes.We are dedicated to delivering products that not only meet but exceed required specifications and industry standards. Our team of experts is unwavering in their commitment to ensuring the highest levels of quality, consistency, and reliability in every batch we produce.
+        </p></div>
+
+        <div class="sidebar" id="cartSidebar">
+            <button class="close-sidebar" onclick="closeSidebar()">X</button>
+            <div class="sidebar-content">
+                <div class="cart-products">
+                    <!-- Cart products will be dynamically added here -->
+                </div>
+                <div class="cart-total">
+                    <!-- Cart total will be dynamically added here -->
+                </div>
+                <div class="cart-button">
+                    <!-- Cart button is now statically added here -->
+                    <button class="place-order-btn" style="background-color: blue; color: white; padding: 10px 20px;">Place Order</button>
+                </div>
+            </div>
+        </div>
+            
+    
+    <script src="{% static 'home.js' %}"></script>
+    
+</body>
+
+<footer>
+    <div class="footer-content">
+        <div class="contact-info">
+            <h3 class="foot">Contact Information</h3>
+            <p>Email:  raj@email.com</p>
+            <p>Phone:  9360770880</p>
+            <p>Address:   no.5, Selva Vinayaga Street,Venkateswara nagar,Kodungaiyur,Chennai-600118</p>
+        </div>
+    </div>
+    </footer>
+</html>

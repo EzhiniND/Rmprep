@@ -1,0 +1,308 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Poppins',sans-serif;
+    margin-bottom: 50px;
+
+}
+.navbar{
+    background-color: black;
+    color: white;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+}
+.nav-cart{
+    cursor: pointer;
+    padding: 5px;
+    
+}
+.cart-items{
+    position: absolute;
+    top: 0;
+    height: 20px;
+    width: 20px;
+    background-color: aliceblue;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 50%;
+}
+.navbar-links{
+    color: aliceblue;
+    display: flex;
+    column-gap: 20px;
+}
+.navbar-link{
+    color: white;
+
+}
+.navbar-links a:hover{
+    text-decoration: underline;
+    color: white;
+}
+.navbar-menu{
+    display: none;
+}
+.side-navbar{
+    background-color: black;
+    width: 50%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -60%;
+    padding: 20px;
+    color: white;
+    transition:2s;
+}
+@media screen and (max-width:600px){
+    .navbar-menu{
+        display: block;
+    }
+    .navbar-links{
+        display:none;
+    }
+    .header-img{
+        display: none;
+    }
+}
+
+
+.side-navbar-link{
+    margin-bottom: 30px;
+}
+.side-navbar-links a{
+    text-decoration: none;
+    color: white;
+
+}
+.side-navbar-links a:hover{
+    text-decoration: underline;
+
+}
+.header{
+    display:flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 50px;
+}
+.header-button{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    background-color:black ;
+    color: white;
+    cursor: pointer;
+}
+.slider-container {
+    width: 100%;
+    height: 500px;
+    
+    
+    overflow: hidden;
+    position: relative;
+}
+.head1{
+    padding: 50px;
+    color: black;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 35px;
+    
+    
+
+}
+/* General Footer Styles */
+footer {
+    margin-top: 40px;
+    background-color: #343333;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    bottom: 0;
+    
+}
+
+/* Footer Content Styles */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+    justify-content:center;
+    
+}
+
+/* Contact Info Styles */
+.contact-info {
+    max-width: 100%; /* Adjust the max-width to 100% for responsiveness */
+    flex-basis: calc(33.33% - 20px); /* Adjust the basis for responsive layout */
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+}
+
+/* Border Style */
+.foot {
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+}
+
+
+p {
+    margin: 5px 10px;
+    display:inline;
+}
+.about{
+
+    padding: 10px;
+    text-align: center;
+    font-size: 25px;
+
+}
+
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.service-head{
+    justify-content: center;
+    text-align: center;
+    text-decoration: underline;
+}
+.products{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+  
+
+}
+.cart{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 400px;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 1px 4px rgba(40,37,37,0.1);
+
+
+
+}
+.cart-active{
+    right:0;
+    transition: 0.5s;
+}
+/* Add this style to your existing CSS */
+.cart-products {
+    position: fixed;
+    top: 10px;
+    right: 0;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+
+.products h5{
+    margin-top: 10px;
+    background-color: darkblue;
+    padding: 5px;
+    color: azure;
+
+}
+.products-container{
+    height: 150px;
+    width: 150px;
+    position: relative;
+    flex-basis: 20%;
+    margin: 10%;
+    cursor: pointer;
+
+
+}
+.products-container button{
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    margin-inline: 30%;
+    transition: background-color 0.3s ease;
+     
+}
+.products-container button:hover{
+
+    background-color:green;
+    color: white;
+
+}
+.products h4{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: medium;
+    text-align: center;
+    color:black
+}
+
+/* Optional: Add navigation buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    padding: 10px;
+    border: none;
+    outline: none;
+    
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+.prev, .next {
+    /* ... existing styles ... */
+    color: white;
+    background-color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+

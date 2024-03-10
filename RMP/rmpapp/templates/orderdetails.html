@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            margin-left: 50%;
+            transform: translateX(-25%);
+        }
+
+        form {
+            text-align: center;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #orderSummaryContainer p {
+            margin: 0;
+            padding: 10px;
+        }
+
+        .cartTotal {
+            font-size: large;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <h1>Personal Details Form</h1>
+
+    <form id="personalDetailsForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" required>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <h1>Order summary</h1>
+
+    <div id="orderSummaryContainer"></div>
+
+    <script>
+        // Retrieve order summary from sessionStorage
+        const orderSummaryString = sessionStorage.getItem('orderSummary');
+        console.log('Order Summary String:', orderSummaryString);
+        const orderSummary = JSON.parse(orderSummaryString);
+        console.log('Order Summary:', orderSummary);
+
+        // Display order summary on the page
+        const orderSummaryContainer = document.getElementById('orderSummaryContainer');
+        
+        if (orderSummary) {
+            // Display key-value pairs
+            for (const [key, value] of Object.entries(orderSummary)) {
+                const keyValueElement = document.createElement('p');
+                keyValueElement.textContent = `${key}: ${value}`;
+                orderSummaryContainer.appendChild(keyValueElement);
+            }
+
+            // Display products
+            if (orderSummary.products) {
+                orderSummary.products.forEach((product) => {
+                    const productElement = document.createElement('p');
+                    productElement.textContent = product;
+                    orderSummaryContainer.appendChild(productElement);
+                });
+            }
+
+            // Display cart total
+            const cartTotalElement = document.createElement('p');
+            const strongElement = document.createElement('strong');
+            strongElement.textContent = orderSummary.cartTotal;
+            cartTotalElement.classList.add('cartTotal');
+            cartTotalElement.appendChild(strongElement);
+            orderSummaryContainer.appendChild(cartTotalElement);
+        } else {
+            // Handle the case where there is no order summary
+            const noOrderMessage = document.createElement('p');
+            noOrderMessage.textContent = 'No order summary available.';
+            orderSummaryContainer.appendChild(noOrderMessage);
+        }
+    </script>
+
+</body>
+</html>
